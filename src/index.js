@@ -1,15 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
-import { LocomotiveScrollProvider } from "react-locomotive-scroll";
-import App from "./components/app/app.jsx";
 
+import App from "./components/App/App.jsx";
 
 const settings = {};
 
-
 ReactDOM.render(
-    <App
+    <App>
 
-    />,
+    </App>,
     document.querySelector(`#root`)
 );

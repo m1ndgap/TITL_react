@@ -1,6 +1,12 @@
 import React, { useRef} from "react";
-import Test from "../test/test.jsx";
 import {LocomotiveScrollProvider, useLocomotiveScroll} from 'react-locomotive-scroll';
+
+import GlobalStyles from "../../styles/globalStyles";
+import GlobalFonts from "../../styles/fonts";
+import { Reset } from 'styled-reset';
+
+import MainMenu from "../MainMenu/MainMenu.jsx";
+import SvgText from "../SvgText/SvgText.jsx";
 
 const App = (props) => {
     //const {places, descriptions} = props;
@@ -22,11 +28,15 @@ const App = (props) => {
             }
             containerRef={containerRef}
         >
-            <div data-scroll-container ref={containerRef}>
-                <Test
+            <GlobalStyles />
+            <GlobalFonts />
 
-                />
-            </div>
+
+            <section data-scroll-container ref={containerRef}>
+                <MainMenu />
+                <Header />
+                <SvgText />
+            </section>
 
         </LocomotiveScrollProvider>
     );
