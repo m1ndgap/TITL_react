@@ -5,6 +5,7 @@ import App from "./components/App/App.jsx";
 
 const settings = {};
 
+
 ReactDOM.render(
     <App>
 

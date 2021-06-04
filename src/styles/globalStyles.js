@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     }
   
     body {
+      position: relative;
       margin: 0;
       padding: 0;
       background: #000000;
@@ -16,10 +17,26 @@ const GlobalStyle = createGlobalStyle`
     }
     
     main {
+      position: relative;
       width: 1440px;
       min-height: 100vh;
       margin: 0 auto 0;
       background-color: #fff;
+    }
+    
+    .scroll-section {
+      position: relative;
+      padding: 0 80px 100px 80px;
+    }
+    
+    .first-section {
+      background-color: #f0f2f6;
+      padding-top: 100px;
+    }
+
+    .second-section {
+      background-color: #fff;
+      padding-top: 100px;
     }
     
     // LOCOMOTIVE

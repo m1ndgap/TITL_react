@@ -5,8 +5,6 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import * as S from './styles/MainMenu.styles.js';
 import {Square} from "./styles/MainMenu.styles.js";
 
-console.log(S)
-
 const MainMenu = () => {
     const { scroll } = useLocomotiveScroll();
 

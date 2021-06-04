@@ -13,7 +13,15 @@ export default createGlobalStyle`
     @font-face {
         font-family: 'Barlow';
         src: local('Barlow'), local('Barlow'),
-        url('./Barlow-Regular.woff2') format('woff2');
+        url('./fonts/Barlow-Light.woff2') format('woff2');
+        font-weight: 300;
+    }
+  
+  
+    @font-face {
+        font-family: 'Barlow';
+        src: local('Barlow'), local('Barlow'),
+        url('./fonts/Barlow-Regular.woff2') format('woff2');
         font-weight: 400;
         font-style: normal;
     }
@@ -21,16 +29,14 @@ export default createGlobalStyle`
     @font-face {
       font-family: 'Barlow';
       src: local('Barlow'), local('Barlow'),
-      url('./Barlow-Semibold.woff2') format('woff2');
+      url('./fonts/Barlow-Semibold.woff2') format('woff2');
       font-weight: 600;
-      font-style: normal;
     }
 
     @font-face {
       font-family: 'Barlow';
       src: local('Barlow'), local('Barlow'),
-      url('./Barlow-Bold.woff2') format('woff2');
+      url('./fonts/Barlow-Bold.woff2') format('woff2');
       font-weight: 800;
-      font-style: normal;
     }
 `;
