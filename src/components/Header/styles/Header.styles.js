@@ -7,6 +7,13 @@ export const MainTitle = styled.h1`
   color: #000;
   `
 
+export const MainTitle2 = styled.h1`
+  margin: 80px 0 0 0;
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #000;
+  `
+
 export const SubTitle = styled.p`
   font-size: 1.4rem;
   `
