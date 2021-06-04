@@ -29,7 +29,7 @@ export default createGlobalStyle`
     @font-face {
       font-family: 'Barlow';
       src: local('Barlow'), local('Barlow'),
-      url('./fonts/Barlow-Semibold.woff2') format('woff2');
+      url('./fonts/Barlow-SemiBold.woff2') format('woff2');
       font-weight: 600;
     }
 
