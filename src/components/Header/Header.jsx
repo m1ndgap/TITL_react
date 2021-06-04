@@ -11,7 +11,6 @@ const Header = () => {
     return (
         <>
             <S.MainTitle id="main-title">Titl Agency</S.MainTitle>
-            <S.MainTitle2>Titl Agency</S.MainTitle2>
             <S.SubTitle>2018 - Present</S.SubTitle>
         </>
     );
