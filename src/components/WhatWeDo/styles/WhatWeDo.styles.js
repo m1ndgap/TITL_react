@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
 export const WhatWeDo = styled.div`
-  padding: 200px 80px 150px;
-  background-color: #000;
   display: flex;
-  
+  padding: 200px 80px 90px;
+  background-color: #000;
+   
   h2 {
     margin: 0;
   }

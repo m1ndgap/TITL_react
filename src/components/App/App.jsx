@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
 import locomotiveScroll from "locomotive-scroll";
 
 import { GlobalStyles } from "../../styles/globalStyles";
@@ -23,8 +23,23 @@ import ContactUs from "../ContactUs/ContactUs.jsx";
 
 const App = () => {
     const containerRef = useRef(null);
+    const { scroll } = useLocomotiveScroll();
 
-    const [scroll, setScroll] = useState({});
+//    const [scroll, setScroll] = useState({});
+    const [menuColor, setMenuColor] = useState('');
+    useEffect(() => {
+        window.addEventListener('scroll', scrolling);
+    })
+
+    const scrolling = () => {
+        console.log("scrolling");
+    }
+
+    if (scroll != null) {
+        console.log("scroll updated from the main app")
+        console.log(scroll);
+        setTimeout(() => this.scroll.update(), 300);
+    }
 
     const casesMarkup = cases.map(item => <Case key={item.id} case={item} />);
 
@@ -66,23 +81,28 @@ const App = () => {
                     </section>
                 </div>
                 <section
-                    className={"scroll-section"} >
+                    className={"scroll-section"}
+                    id={"cases"}>
                     {casesMarkup}
                 </section>
                 <section
                     data-scroll-section
-                    className={"what-we-do"}>
+                    className={"what-we-do"}
+                    id={"what-we-do"}>
                     <WhatWeDo />
                 </section>
                 <section
                     data-scroll-section
-                    className={"what-we-do"}>
+                    className={"our-areas"}
+                    id={"our-areas"}>
                     <OurAreas />
                 </section>
                 <section
                     data-scroll-section
                     className={"contact-us"}>
                     <ContactUs />
+                </section>
+                <section data-scroll-section>
                 </section>
 
             </LocomotiveScrollProvider>
