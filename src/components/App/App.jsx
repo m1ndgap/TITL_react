@@ -1,7 +1,8 @@
-import React, { useRef} from "react";
-import {LocomotiveScrollProvider, useLocomotiveScroll} from 'react-locomotive-scroll';
+import React, { useRef, useEffect, useState } from "react";
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import locomotiveScroll from "locomotive-scroll";
 
-import GlobalStyles from "../../styles/globalStyles";
+import { GlobalStyles } from "../../styles/globalStyles";
 import GlobalFonts from "../../styles/fonts";
 import { Reset } from 'styled-reset';
 
@@ -14,12 +15,18 @@ import WeCraft from "../WeCraft/WeCraft.jsx";
 import Case from "../Case/Case.jsx";
 import cases from "../../Mocks/cases.js";
 
-const App = () => {
-    const { scroll } = useLocomotiveScroll();
-    //const containerRef = useRef(null);
-    const foo = console.log(123)
-    const casesMarkup = cases.map(item => <Case key={item.id} case={item} />);
+import WhatWeDo from "../WhatWeDo/WhatWeDo.jsx";
+import OurAreas from "../OurAreas/OurAreas.jsx";
+import ContactUs from "../ContactUs/ContactUs.jsx";
 
+
+
+const App = () => {
+    const containerRef = useRef(null);
+
+    const [scroll, setScroll] = useState({});
+
+    const casesMarkup = cases.map(item => <Case key={item.id} case={item} />);
 
         return (
             <LocomotiveScrollProvider
@@ -34,7 +41,7 @@ const App = () => {
                         //...all the dependencies you want to watch to update the scroll
                     ]
                 }
-                //containerRef={containerRef}
+                containerRef={containerRef}
             >
                 <GlobalStyles />
                 <GlobalFonts />
@@ -51,19 +58,32 @@ const App = () => {
                     </section>
                     <section
                         data-scroll
-                        data-scroll-speed="5"
+                        data-scroll-speed="10"
                         data-scroll-direction="vertical"
-                        data-scroll-offset="-500, 0"
                         data-scroll-id="foo"
                         className={"second-section scroll-section"} >
                         <WeCraft />
                     </section>
                 </div>
-                    <section
-                        className={"scroll-section"} >
-                        {casesMarkup}
-                    </section>
-
+                <section
+                    className={"scroll-section"} >
+                    {casesMarkup}
+                </section>
+                <section
+                    data-scroll-section
+                    className={"what-we-do"}>
+                    <WhatWeDo />
+                </section>
+                <section
+                    data-scroll-section
+                    className={"what-we-do"}>
+                    <OurAreas />
+                </section>
+                <section
+                    data-scroll-section
+                    className={"contact-us"}>
+                    <ContactUs />
+                </section>
 
             </LocomotiveScrollProvider>
     );

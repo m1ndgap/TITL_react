@@ -5,7 +5,6 @@ export const Case = styled.article`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 100px;
-  
 `
 
 export const CaseTextWrap = styled.div`
@@ -71,7 +70,12 @@ export const SignedBy = styled.figcaption`
 `
 
 export const ImgWrap = styled.figure`
+  background-color: #f0f2f6;
   height: 747px;
   width: 747px;
   overflow: hidden;
+  
+  img {
+    margin-top: 50px;
+  }
 `

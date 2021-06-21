@@ -1,11 +1,11 @@
 import {createGlobalStyle} from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
     html {
-        font-size: 62.5%
-          * {
-            box-sizing: border-box
-          }
+      font-size: 62.5%
+        * {
+          box-sizing: border-box
+        } 
     }
   
     body {
@@ -107,6 +107,4 @@ const GlobalStyle = createGlobalStyle`
       right: auto;
       bottom: 0; }
 `;
-
-export default GlobalStyle;
 

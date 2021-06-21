@@ -14,7 +14,7 @@ export default createGlobalStyle`
         font-family: 'Barlow';
         src: local('Barlow'), local('Barlow'),
         url('./fonts/Barlow-Light.woff2') format('woff2');
-        font-weight: 300;
+        font-weight: 400;
     }
   
   
@@ -22,7 +22,7 @@ export default createGlobalStyle`
         font-family: 'Barlow';
         src: local('Barlow'), local('Barlow'),
         url('./fonts/Barlow-Regular.woff2') format('woff2');
-        font-weight: 400;
+        font-weight: 500;
         font-style: normal;
     }
 
