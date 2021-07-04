@@ -11,18 +11,23 @@ const SvgTextWrap = styled.div`
 
 const fillDash = keyframes`
   to {
-    stroke-dasharray: 350;
+    stroke-dasharray: 370;
+  }
+`
+
+const fillOffset = keyframes`
+  to {
     stroke-dashoffset: 0;
   }
 `
 
 const AnimatedPath = styled.path`
-  stroke-dashoffset: 100;
-  stroke-dasharray: 20;
+  stroke-dasharray: 350;
+  stroke-dashoffset: -20;
   fill: none;
   stroke: #000000;
   // transition: stroke-dasharray 1000ms ease-in-out;
-  animation: ${fillDash} 2s ease-in forwards;
+  animation: ${fillDash} 2s ease-in 200ms forwards, ${fillOffset} 1s ease-in 500ms forwards;
 `
 
 
