@@ -2,7 +2,7 @@ import {createGlobalStyle} from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     html {
-      font-size: 62.5%
+      position: relative;
         * {
           box-sizing: border-box
         } 

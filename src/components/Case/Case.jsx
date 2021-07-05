@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import { PopupContext } from '../PopupStore/PopupStore';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import * as S from './styles/Case.styles.js';
@@ -7,6 +8,7 @@ import * as S from './styles/Case.styles.js';
 const Case = (props) => {
     const { scroll } = useLocomotiveScroll();
     const { id, name, title, link, feedback, signedBy, img} = props.case;
+    const [state, dispatch] = useContext(PopupContext);
 
 
     return (
@@ -43,7 +45,10 @@ const Case = (props) => {
             </S.CaseTextWrap>
             <S.ImgWrap
             data-scroll
-            data-scroll-speed='0'>
+            data-scroll-speed='0'
+            onMouseEnter={() => dispatch({type: `toggle_${name.toLowerCase()}`})}
+            onMouseLeave={() => dispatch({type: "toggle_clear"})}
+            >
                 <img
                      data-scroll
                      data-scroll-id={`case-scroll-${id}`}
@@ -51,7 +56,7 @@ const Case = (props) => {
                      data-scroll-lerp={0.5}
                      data-scroll-speed='2'
                      data-scroll-repeat={true}
-                    src={img} alt={name}/>
+                     src={img} alt={name}/>
             </S.ImgWrap>
         </S.Case>
     );
