@@ -54,7 +54,6 @@ const LoadingEl = styled.div`
   animation: ${RemoveLS} 900ms ease-in-out 1100ms forwards;
 `
 const TitlLogo = styled.svg`
-  
   position: absolute;
   right: 0;
   top: 50px;

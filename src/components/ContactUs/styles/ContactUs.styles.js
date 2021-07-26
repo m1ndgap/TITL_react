@@ -1,9 +1,14 @@
 import styled, { css } from 'styled-components';
 
 export const ContactUs = styled.div`
-  padding: 160px 347px;
+  min-height: 83vh;
+  padding: 260px 347px;
   label + label {
     margin-top: 30px;
+  }
+  @media (max-width: 1024px) {
+    min-height: unset;
+    padding: 10px;
   }
 `
 
@@ -43,4 +48,38 @@ export const Input = styled.input`
   }
 `;
 
+export const SubmitWrap = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+`
 
+export const Submit = styled.button`
+  
+  margin-left: 0;
+  appearance: none;
+  border: none;
+  background: none;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Barlow", sans-serif;
+  color: #D94343;
+  cursor: pointer
+`
+
+export const Privacy = styled.span`
+  
+  font-weight: 400;
+  font-size: 13px;
+  color: #CCCCCC;
+  
+  button {
+    cursor: pointer;
+    color: #000;
+    appearance: none;
+    border: none;
+    background: none;
+  }
+`

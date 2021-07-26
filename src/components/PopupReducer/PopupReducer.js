@@ -6,6 +6,7 @@ export const reducer = (state, action) => {
                 active: !state.active,
                 title: "goals",
                 theme: "dark",
+                size: "small",
                 text: "Get in touch",
                 link: true
             }
@@ -15,6 +16,7 @@ export const reducer = (state, action) => {
                 active: !state.active,
                 title: "briefs",
                 theme: "dark",
+                size: "small",
                 text: "Get in touch",
                 link: true
             }
@@ -24,6 +26,7 @@ export const reducer = (state, action) => {
                 active: !state.active,
                 title: "WAZUP",
                 theme: "dark",
+                size: "large",
                 text: "coming soon",
                 link: false
             }
@@ -33,6 +36,7 @@ export const reducer = (state, action) => {
                 active: !state.active,
                 title: "NANA DIGITAL",
                 theme: "dark",
+                size: "large",
                 text: "coming soon",
                 link: false
             }
@@ -42,6 +46,7 @@ export const reducer = (state, action) => {
                 active: !state.active,
                 title: "KlearCard",
                 theme: "dark",
+                size: "large",
                 text: "coming soon",
                 link: false
             }
@@ -51,6 +56,7 @@ export const reducer = (state, action) => {
                 active: !state.active,
                 title: "2 cases",
                 theme: "light",
+                size: "small",
                 text: "coming soon",
                 link: false
             }
@@ -60,6 +66,7 @@ export const reducer = (state, action) => {
                 active: !state.active,
                 title: "2 cases",
                 theme: "light",
+                size: "small",
                 text: "coming soon",
                 link: false
             }
@@ -69,6 +76,7 @@ export const reducer = (state, action) => {
                 active: !state.active,
                 title: "3 cases",
                 theme: "light",
+                size: "small",
                 text: "coming soon",
                 link: false
             }
@@ -78,6 +86,7 @@ export const reducer = (state, action) => {
                 active: !state.active,
                 title: "3 cases",
                 theme: "light",
+                size: "small",
                 text: "coming soon",
                 link: false
             }
@@ -87,6 +96,7 @@ export const reducer = (state, action) => {
                 active: !state.active,
                 title: "",
                 theme: "",
+                size: "",
                 text: "",
                 link: false
             }
@@ -100,5 +110,6 @@ export const initialState = {
     text: "",
     title: "",
     theme: "",
+    size: "",
     link: false
 }

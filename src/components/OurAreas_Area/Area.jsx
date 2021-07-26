@@ -19,8 +19,8 @@ const Area = (props) => {
                 <S.Name>{name}</S.Name>
                 <S.Count>{count}</S.Count>
             </S.Link>
-            <S.Line>
-                <S.Fill></S.Fill>
+            <S.Line className={'expertise-line'}>
+                <S.Fill className={'expertise-line-fill'}></S.Fill>
             </S.Line>
         </S.Area>
     );

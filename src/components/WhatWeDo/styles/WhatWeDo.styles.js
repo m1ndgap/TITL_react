@@ -2,7 +2,10 @@ import styled, { css } from 'styled-components';
 
 export const WhatWeDo = styled.div`
   display: flex;
-  padding: 200px 80px 90px;
+  padding-top: 200px ;
+  padding-left: calc((100% - 1280px) / 2);
+  padding-right: calc((100% - 1280px) / 2);
+  padding-bottom: 90px;
   background-color: #000;
    
   h2 {
@@ -29,6 +32,7 @@ export const Link = styled.a`
   color: #D94343;
   font-weight: 600;
   font-size: 1.2rem;
+  cursor: pointer;
   
   svg {
     margin: 46px 0 0 8px;
@@ -36,11 +40,22 @@ export const Link = styled.a`
 `;
 
 export const ListsWrap = styled.div`
+  position: relative;
   display: flex;
   flex-flow: row wrap;
   margin-top: 70px;
   padding-top: 64px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  
+  .animated-line-wwd {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: all 300ms ease-in;
+    background-color: rgba(255, 255, 255, 0.2);
+    
+  }
 `;
 
 export const ListWrap = styled.div`

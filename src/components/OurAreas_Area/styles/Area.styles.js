@@ -38,7 +38,8 @@ export const Line = styled.div`
 `;
 
 export const Fill = styled.div`
-  width: 100%;
+  width: 0;
   height: 1px;
   background-color: #fff;
+  transition: width 1500ms;
 `;

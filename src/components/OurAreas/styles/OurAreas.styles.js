@@ -22,7 +22,10 @@ export const AnimatedLine = styled.div`
 export const OurAreas = styled.div`
   position: relative;
   display: flex;
-  padding: 154px 80px 90px;
+  padding-top: 154px;
+  padding-bottom: 90px;
+  padding-left: calc((100% - 1280px) / 2);
+  padding-right: calc((100% - 1280px) / 2);
   margin-top: -10px;
   background-color: #000;
   

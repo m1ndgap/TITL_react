@@ -44,8 +44,9 @@ export const Link = styled.a`
 
 export const Line = styled.div`
   background-color: #000;
-  width: 100%;
+  width: 0;
   height: 1px;
+  transition: width 1500ms;
 `
 
 export const Feedback = styled.blockquote`
@@ -74,8 +75,14 @@ export const ImgWrap = styled.figure`
   height: 747px;
   width: 747px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
   img {
     margin-top: 50px;
   }
+`
+export const Picture = styled.picture`
+  width: 100%;
 `

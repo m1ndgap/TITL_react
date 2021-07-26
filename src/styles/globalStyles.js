@@ -18,7 +18,8 @@ export const GlobalStyles = createGlobalStyle`
     
     main {
       position: relative;
-      width: 1440px;
+      //width: 1440px;
+      
       min-height: 100vh;
       margin: 0 auto 0;
       background-color: #fff;
@@ -28,16 +29,43 @@ export const GlobalStyles = createGlobalStyle`
       position: relative;
       padding: 0 80px 100px 80px;
     }
+
+    .section {
+      padding-left: calc((100% - 1280px) / 2);
+      padding-right: calc((100% - 1280px) / 2);
+    }
     
     .first-section {
+      
       background-color: #f0f2f6;
       padding-top: 100px;
+      
     }
 
     .second-section {
       background-color: #fff;
       padding-top: 100px;
     }
+    
+    .centered-img {
+      display: flex;
+      justify-content: center;
+    }
+    
+    
+    .mobile-wrap{
+      padding-top: 20px;
+      
+      h1 {
+        display: block;
+        width: max-content;
+        margin: 50px auto;
+        padding: 0;
+      }
+      
+    }
+    
+    
     
     // LOCOMOTIVE
     /*! locomotive-scroll v4.1.1 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
