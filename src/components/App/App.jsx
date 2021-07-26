@@ -59,16 +59,12 @@ const App = () => {
         const expLines = document.querySelectorAll('.expertise-line');
         const caseLines = document.querySelectorAll('.case-scroll')
 
-        console.log(caseLines)
-
         scrollGlobal.on('scroll', (args) => {
             if (args.scroll['y'] > 200) {
                 square.style.transform = 'scale(0.5) rotate(90deg) translateY(-50px)'
             } else {
                 square.style.transform = 'scale(1) rotate(0deg) translateY(0)'
             }
-
-            console.log(args.currentElements)
 
             caseLines.forEach((line) => {
                 if (typeof args.currentElements[`${line.id}`] === 'object' && args.currentElements[`${line.id}`].progress > 0.3) {
