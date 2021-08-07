@@ -15,6 +15,7 @@ const WhatWeDo = () => {
 
     return (
         <S.WhatWeDo>
+
             <h2><img src="./img/what-we-do-best.svg" alt=""/></h2>
             <S.TextWrap>
                 <S.Text>

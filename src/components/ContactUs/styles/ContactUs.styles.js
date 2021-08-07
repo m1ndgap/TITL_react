@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const ContactUs = styled.div`
-  min-height: 83vh;
+  min-height: 100vh;
   padding: 260px 347px;
   label + label {
     margin-top: 30px;

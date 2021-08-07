@@ -31,6 +31,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .section {
+      position: relative;
       padding-left: calc((100% - 1280px) / 2);
       padding-right: calc((100% - 1280px) / 2);
     }
@@ -65,6 +66,28 @@ export const GlobalStyles = createGlobalStyle`
       
     }
     
+    .what-we-do {
+      position: relative;
+    }
+    
+    .trigger {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+    }
+    
+    .trigger-1 {
+      top: 500px;
+    }
+
+    .trigger-2 {
+      bottom: 70vh;
+    }
+
+    .trigger-3 {
+      top: 20vh;
+    }
     
     
     // LOCOMOTIVE

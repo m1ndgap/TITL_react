@@ -41,6 +41,42 @@ const App = () => {
 
     const lWidth = window.screen.width;
 
+    const [color, setColor] = useState('grey');
+
+    const mainMenu = useRef(null);
+
+    const changeColor = (theme) => {
+        console.log(theme);
+        const menu = mainMenu.current;
+        const square = menu.querySelector('.mainmenu-square')
+        const spans = menu.querySelectorAll('.main-menu .color-span');
+
+        switch (theme) {
+            case 'dark':
+                square.style.backgroundColor = '#fff'
+                menu.style.backgroundColor = '#000';
+                spans.forEach((span) => {
+                    span.style.color = '#fff'
+                })
+                break;
+            case 'white':
+                square.style.backgroundColor = '#000'
+                menu.style.backgroundColor = '#fff';
+                spans.forEach((span) => {
+                    span.style.color = '#000'
+                })
+                break;
+            case 'grey':
+                square.style.backgroundColor = '#000'
+                menu.style.backgroundColor = '#f0f2f6';
+                spans.forEach((span) => {
+                    span.style.color = '#000'
+                })
+                break;
+        }
+
+    }
+
     let scrollGlobal = useRef(null);
 
     if (lWidth > 1024) {
@@ -53,83 +89,95 @@ const App = () => {
 
 
         const square = document.querySelector('.mainmenu-square');
-        const mainMenu = document.querySelector('.main-menu');
-        const mainMenuSpans = document.querySelectorAll('.main-menu .color-span');
-        const wwdLine = document.querySelector('.animated-line-wwd');
-        const expLines = document.querySelectorAll('.expertise-line');
-        const caseLines = document.querySelectorAll('.case-scroll')
+        // //const mainMenu = document.querySelector('.main-menu');
+        //
+        // const wwdLine = document.querySelector('.animated-line-wwd');
+        // const expLines = document.querySelectorAll('.expertise-line');
+        // const caseLines = document.querySelectorAll('.case-scroll')
 
         scrollGlobal.on('scroll', (args) => {
+
+            console.log(args.currentElements);
             if (args.scroll['y'] > 200) {
                 square.style.transform = 'scale(0.5) rotate(90deg) translateY(-50px)'
             } else {
                 square.style.transform = 'scale(1) rotate(0deg) translateY(0)'
             }
 
-            caseLines.forEach((line) => {
-                if (typeof args.currentElements[`${line.id}`] === 'object' && args.currentElements[`${line.id}`].progress > 0.3) {
-                    line.querySelector('.case-line').style.width = '100%'
-                }
-            })
 
-            if (typeof args.currentElements['header']
-                === 'object' && args.currentElements['header'].progress
-                > 0.9 && mainMenu.style.backgroundColor != 'rgb(255, 255, 255)') {
-                square.style.backgroundImage = 'none';
-                square.style.backgroundColor = '#000'
-                mainMenu.style.backgroundColor = '#fff';
-            } else if (typeof args.currentElements['header']
-                === 'object' && args.currentElements['header'].progress
-                < 0.9 && mainMenu.style.backgroundColor == 'rgb(255, 255, 255)') {
-                mainMenu.style.backgroundColor = '#f0f2f6'
+            if (args.scroll['y'] < 600) {
+                mainMenu.current.style.backgroundColor = '#f0f2f6';
             }
 
-            if (typeof args.currentElements['wwd']
-                === 'object' && args.currentElements['wwd'].progress
-                > 0.37 && mainMenu.style.backgroundColor != 'rgb(0, 0, 0)') {
-                square.style.backgroundColor = '#fff'
-                mainMenu.style.backgroundColor = '#000'
-                mainMenuSpans.forEach((span) => {
-                    span.style.color = '#fff'
-                })
-                wwdLine.style.width = '100%'
-            } else if(typeof args.currentElements['wwd']
-                === 'object' && args.currentElements['wwd'].progress
-                < 0.37 && mainMenu.style.backgroundColor == 'rgb(0, 0, 0)') {
-                square.style.backgroundColor = '#000'
-                mainMenu.style.backgroundColor = '#fff'
-                mainMenuSpans.forEach((span) => {
-                    span.style.color = '#000'
-                })
-            }
-
-            if (typeof args.currentElements['wwd'] === 'object' && args.currentElements['wwd'].progress > 0.80) {
-                expLines.forEach((line) => {
-                    let timeOut = window.setTimeout(() => {
-                        line.querySelector('.expertise-line-fill').style.width = "100%"
-                    }, Math.random()*700)
-                })
-            }
-
-            if (typeof args.currentElements['contact']
-                === 'object' && args.currentElements['contact'].progress
-                > 0.47 && mainMenu.style.backgroundColor != 'rgb(255, 255, 255)') {
-                square.style.backgroundColor = '#000'
-                mainMenu.style.backgroundColor = '#fff'
-                mainMenuSpans.forEach((span) => {
-                    span.style.color = '#000'
-                })
-            } else if(typeof args.currentElements['contact']
-                === 'object' && args.currentElements['contact'].progress
-                < 0.40 && mainMenu.style.backgroundColor == 'rgb(255, 255, 255)') {
-                square.style.backgroundColor = '#fff'
-                mainMenu.style.backgroundColor = '#000'
-                mainMenuSpans.forEach((span) => {
-                    span.style.color = '#fff'
-                })
-            }
+            // caseLines.forEach((line) => {
+            //     if (typeof args.currentElements[`${line.id}`] === 'object' && args.currentElements[`${line.id}`].progress > 0.3) {
+            //         line.querySelector('.case-line').style.width = '100%'
+            //     }
+            // })
+            //
+            // if (typeof args.currentElements['header']
+            //     === 'object' && args.currentElements['header'].progress
+            //     > 0.9 && mainMenu.style.backgroundColor != 'rgb(255, 255, 255)') {
+            //     square.style.backgroundImage = 'none';
+            //     square.style.backgroundColor = '#000'
+            //     mainMenu.style.backgroundColor = '#fff';
+            // } else if (typeof args.currentElements['header']
+            //     === 'object' && args.currentElements['header'].progress
+            //     < 0.9 && mainMenu.style.backgroundColor == 'rgb(255, 255, 255)') {
+            //     mainMenu.style.backgroundColor = '#f0f2f6'
+            // }
+            //
+            // if (typeof args.currentElements['wwd']
+            //     === 'object' && args.currentElements['wwd'].progress
+            //     > 0.37 && mainMenu.style.backgroundColor != 'rgb(0, 0, 0)') {
+            //     square.style.backgroundColor = '#fff'
+            //     mainMenu.style.backgroundColor = '#000'
+            //     mainMenuSpans.forEach((span) => {
+            //         span.style.color = '#fff'
+            //     })
+            //     wwdLine.style.width = '100%'
+            // } else if(typeof args.currentElements['wwd']
+            //     === 'object' && args.currentElements['wwd'].progress
+            //     < 0.37 && mainMenu.style.backgroundColor == 'rgb(0, 0, 0)') {
+            //     square.style.backgroundColor = '#000'
+            //     mainMenu.style.backgroundColor = '#fff'
+            //     mainMenuSpans.forEach((span) => {
+            //         span.style.color = '#000'
+            //     })
+            // }
+            //
+            // if (typeof args.currentElements['wwd'] === 'object' && args.currentElements['wwd'].progress > 0.80) {
+            //     expLines.forEach((line) => {
+            //         let timeOut = window.setTimeout(() => {
+            //             line.querySelector('.expertise-line-fill').style.width = "100%"
+            //         }, Math.random()*700)
+            //     })
+            // }
+            //
+            // if (typeof args.currentElements['contact']
+            //     === 'object' && args.currentElements['contact'].progress
+            //     > 0.47 && mainMenu.style.backgroundColor != 'rgb(255, 255, 255)') {
+            //     square.style.backgroundColor = '#000'
+            //     mainMenu.style.backgroundColor = '#fff'
+            //     mainMenuSpans.forEach((span) => {
+            //         span.style.color = '#000'
+            //     })
+            // } else if(typeof args.currentElements['contact']
+            //     === 'object' && args.currentElements['contact'].progress
+            //     < 0.40 && mainMenu.style.backgroundColor == 'rgb(255, 255, 255)') {
+            //     square.style.backgroundColor = '#fff'
+            //     mainMenu.style.backgroundColor = '#000'
+            //     mainMenuSpans.forEach((span) => {
+            //         span.style.color = '#fff'
+            //     })
+            // }
 
         });
+
+        scrollGlobal.on('call', func => {
+            changeColor(func);
+        });
+
     }, []);
     }
 
@@ -159,7 +207,7 @@ const App = () => {
                 <LoadingScreen/>
                 <Popup/>
 
-                <MS.MainMenu className={'main-menu'}>
+                <MS.MainMenu ref={mainMenu} className={'main-menu'}>
                     <MS.Square
                         onClick={(e) => {
                             e.preventDefault();
@@ -231,6 +279,7 @@ const App = () => {
                         <WeCraft/>
                     </section>
                 </div>
+
                 <section
                     className={"scroll-section section"}
                     data-scroll-id={'cases'}
@@ -266,14 +315,32 @@ const App = () => {
                     <Case
                         key={casesArr[6].id}
                         case={casesArr[6]}/>
+                    <div
+                        data-scroll
+                        data-scroll-section
+                        data-scroll-call={'white'}
+                        data-scroll-repeat={true}
+                        className={'trigger trigger-2'}
+                    > </div>
                 </section>
                 <section
                     data-scroll
-                    data-scroll-id={'wwd'}
                     data-scroll-section
+                    data-scroll-id={'wwd'}
+                    data-scroll-offset={"40%"}
+                    data-scroll-call={'dark'}
+                    data-scroll-repeat={true}
                     className={"what-we-do"}
                     id={"what-we-do"}>
+                    {/*<div*/}
+                    {/*    data-scroll*/}
+                    {/*    data-scroll-section*/}
+                    {/*    */}
+                    {/*    data-scroll-repeat={true}*/}
+                    {/*    className={'trigger trigger-3'}*/}
+                    {/*> </div>*/}
                     <WS.WhatWeDo>
+
                         <h2><img src="./img/what-we-do-best.svg" alt=""/></h2>
                         <WS.TextWrap>
                             <WS.Text>
@@ -339,6 +406,9 @@ const App = () => {
                 <section
                     data-scroll
                     data-scroll-section
+                    data-scroll-offset={"20%"}
+                    data-scroll-call={'white'}
+                    data-scroll-repeat={true}
                     data-scroll-id={'contact'}
                     className={"contact-us section"}>
                     <ContactUs/>

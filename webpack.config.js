@@ -7,6 +7,9 @@ module.exports = {
         path: path.join(__dirname, `public`)
     },
     devServer: {
+        host: '0.0.0.0',
+        disableHostCheck: true,
+        useLocalIp: true,
         contentBase: path.join(__dirname, `public`),
         open: false,
         port: 1337,
