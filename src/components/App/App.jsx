@@ -89,25 +89,27 @@ const App = () => {
 
 
         const square = document.querySelector('.mainmenu-square');
-        // //const mainMenu = document.querySelector('.main-menu');
-        //
+        //const mainMenu = document.querySelector('.main-menu');
         // const wwdLine = document.querySelector('.animated-line-wwd');
         // const expLines = document.querySelectorAll('.expertise-line');
         // const caseLines = document.querySelectorAll('.case-scroll')
 
+        const themeArr = ['dark', 'white', 'grey'];
+
+
         scrollGlobal.on('scroll', (args) => {
 
-            console.log(args.currentElements);
-            if (args.scroll['y'] > 200) {
-                square.style.transform = 'scale(0.5) rotate(90deg) translateY(-50px)'
-            } else {
-                square.style.transform = 'scale(1) rotate(0deg) translateY(0)'
-            }
+            //console.log(args.currentElements);
+            // if (args.scroll['y'] > 200) {
+            //     square.style.transform = 'scale(0.5) rotate(90deg) translateY(-50px)'
+            // } else {
+            //     square.style.transform = 'scale(1) rotate(0deg) translateY(0)'
+            // }
 
 
-            if (args.scroll['y'] < 600) {
-                mainMenu.current.style.backgroundColor = '#f0f2f6';
-            }
+            // if (args.scroll['y'] < 600) {
+            //     mainMenu.current.style.backgroundColor = '#f0f2f6';
+            // }
 
             // caseLines.forEach((line) => {
             //     if (typeof args.currentElements[`${line.id}`] === 'object' && args.currentElements[`${line.id}`].progress > 0.3) {
@@ -175,7 +177,15 @@ const App = () => {
         });
 
         scrollGlobal.on('call', func => {
-            changeColor(func);
+            console.log(func);
+            if (themeArr.includes(func)) {
+                changeColor(func);
+            } else if (func === 'square') {
+                square.style.transform = 'scale(0.5) rotate(90deg) translateY(-50px)'
+            } else if (func === 'reset') {
+                mainMenu.current.style.backgroundColor = '#f0f2f6';
+                square.style.transform = 'scale(1) rotate(0deg) translateY(0)';
+            }
         });
 
     }, []);
@@ -266,6 +276,9 @@ const App = () => {
                         data-scroll-id={'header'}
                         // data-scroll-speed="1"
                         // data-scroll-direction="vertical"
+                        data-scroll-call={"reset"}
+                        data-scroll-offset={"0, 100%"}
+                        data-scroll-repeat={true}
                         className={"first-section scroll-section section"}>
                         <Header/>
                         <SvgText/>
@@ -275,6 +288,9 @@ const App = () => {
                         data-scroll-id={'wecraft'}
                         data-scroll-speed="3"
                         data-scroll-direction="vertical"
+                        data-scroll-call={"square"}
+                        data-scroll-offset={"20%"}
+                        data-scroll-repeat={true}
                         className={"second-section scroll-section section"}>
                         <WeCraft/>
                     </section>
