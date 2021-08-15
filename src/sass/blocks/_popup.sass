@@ -1,0 +1,80 @@
+.popup-header
+  position: absolute
+  top: 14px
+  left: 14px
+  display: block
+  font-weight: 300
+  font-size: 14px
+  text-transform: uppercase
+  letter-spacing: 1px
+  opacity: 1
+  color: #ffffff
+  transition: opacity 200ms ease-in 320ms
+  z-index: 1
+
+.popup-header--hidden
+  opacity: 0
+
+.popup-header--dark-theme
+  color: #000000
+
+.popup-text
+  position: absolute
+  bottom: 15px
+  left: 0
+  width: 70px
+  font-weight: 600
+  font-size: 20px
+  text-transform: capitalize
+  color: #ffffff
+  opacity: 1
+  transition: opacity 200ms ease-in 520ms, transform 200ms ease-in 420ms
+  transform: translateX(15px)
+
+.popup-text--hidden
+  opacity: 0
+  transform: translateX(0)
+
+.popup-text--dark-theme
+  color: #000000
+
+
+.popup-link
+  position: absolute
+  bottom: 15px
+  right: 25px
+  opacity: 1
+  transition: opacity 200ms ease-in 720ms, transform 200ms ease-in 620ms
+  transform: translateX(10px)
+
+.popup-link--hidden
+  opacity: 0
+  transform: translateX(0)
+
+
+.popup-el
+  position: fixed
+  top: 0
+  left: 0
+  background: #fff
+  width: 140px
+  height: 140px
+  z-index: 1
+  opacity: 1
+  pointer-events: none
+  transition: opacity 200ms ease-in, transform 300ms ease-in-out
+  transform: scale(1)
+
+
+.popup-el--hidden
+  opacity: 0
+  transform: scale(0.1)
+  .popup-header, .popup-text, .popup-link
+    transition: 0ms
+
+.popup-el--dark-theme
+  background: #000
+
+.popup-el--large
+  width: 173px
+  height: 173px

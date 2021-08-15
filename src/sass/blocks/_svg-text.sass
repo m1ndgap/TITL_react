@@ -1,0 +1,125 @@
+.svg-text-wrap
+  padding-bottom:  100px
+  position: relative
+
+
+@keyframes emptyDash
+  to
+    stroke-dasharray: 300
+    stroke-dashoffset: -30
+
+@keyframes fillDash
+  to
+    stroke-dasharray: 520
+    stroke: #000000
+
+@keyframes fillBG
+  to
+    fill: #000
+
+@keyframes fillOffset
+  to
+    stroke-dashoffset: 0
+
+@keyframes fillClipText
+  to
+    background-position: 0 100%
+
+@keyframes textShadow
+  to
+    text-shadow: 1px 0px 3px rgba(0, 0, 0, 1)
+
+@keyframes opacityIn
+  to
+    opacity: 1
+
+.animated-path
+  stroke-dasharray: 250
+  stroke-dashoffset: 120
+  fill: transparent
+  stroke: #000000
+  transition: all 300ms ease-in-out
+  animation: fillDash 2s ease-in 1400ms forwards , fillOffset 2s ease-in 1400ms forwards
+
+.animated-path-fill
+  transition: all 300ms ease-in-out
+  animation: fillDash 2s ease-in 1400ms forwards , fillOffset 2s ease-in 1400ms forwards, fillBG 1.5s ease-in 2000ms forwards
+
+
+.svg-path-wrap
+  cursor: pointer
+  //&:hover
+    path
+      transition: all 300ms ease-in-out
+      stroke-dasharray: 300 !important
+
+.grp-svg
+  fill: #f0f2f6
+  pointer-events: bounding-box
+  //&:hover
+    background: #000
+    path
+      transition: all 300ms ease-in-out
+      stroke-dasharray: 300
+      stroke: yellow
+
+
+.clipped
+  position: absolute
+  width: max-content
+  font-size: 130px
+  font-weight: 800
+  color: transparent
+  background-clip: text
+  -webkit-background-clip: text
+  background-size: 100% 200%
+  background-image: linear-gradient(to top, #000000 0% 50%, transparent 50% 100%)
+  background-position: 0 0
+  text-shadow: none
+  transition: background-position 300ms, text-shadow 300ms
+  animation: fillClipText 2000ms ease-in 1400ms forwards, textShadow 2000ms ease-in 2000ms forwards
+  pointer-events: none
+
+.clipped-g
+  top: 100px
+  left: 2px
+
+.clipped-o
+  top: 100px
+  left: 73px
+
+.clipped-a
+  top: 100px
+  left: 146px
+
+.clipped-l
+  top: 100px
+  left: 215px
+
+.clipped-s
+  top: 100px
+  left: 246px
+
+//const ClippedDiv = styled.div`
+//  position: absolute;
+//  top: -100px;
+//  left: 400px;
+//  height: 87px;
+//  width: 61px;
+//  background-color: red;
+//  clip-path: url(#g-clip);
+//`
+//
+.arrow-svg
+  position: absolute
+  opacity: 0
+  animation: opacityIn 1000ms ease-in 2000ms forwards
+
+.arrow-svg--1
+  top: 137px
+  left: 325px
+
+.arrow-svg--2
+  top: 264px
+  right: 189px
+

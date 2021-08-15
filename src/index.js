@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 
-import App from "./components/App/App.jsx";
+import "./sass/style.sass"
 
-const settings = {};
+import App from "./components/App/App.jsx";
 
 
 ReactDOM.render(
