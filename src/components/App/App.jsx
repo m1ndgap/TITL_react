@@ -36,7 +36,7 @@ const App = () => {
     const containerRef = useRef(null);
     const { scroll } = useLocomotiveScroll();
 
-//    const [scroll, setScroll] = useState({});
+//  const [scroll, setScroll] = useState({});
     const [menuColor, setMenuColor] = useState('');
 
     const lWidth = window.screen.width;

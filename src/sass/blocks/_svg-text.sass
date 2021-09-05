@@ -33,6 +33,13 @@
   to
     opacity: 1
 
+@keyframes moveClipDiv
+  from
+    background-position: 0 130px
+  to
+    background-position: 0 -20px
+
+
 .animated-path
   stroke-dasharray: 250
   stroke-dashoffset: 120
@@ -54,7 +61,6 @@
       stroke-dasharray: 300 !important
 
 .grp-svg
-  fill: #f0f2f6
   pointer-events: bounding-box
   //&:hover
     background: #000
@@ -62,6 +68,8 @@
       transition: all 300ms ease-in-out
       stroke-dasharray: 300
       stroke: yellow
+
+
 
 
 .clipped
@@ -123,3 +131,34 @@
   top: 264px
   right: 189px
 
+.clip-goals-mask, .clip-briefs-mask
+  opacity: 0
+  position: absolute
+
+.svgGoals, .svgBriefs
+  stroke-width: 2px
+
+.clip-goals
+  position: absolute
+  top: 5px
+  height: 300px
+  width: 330px
+  clip-path: url(#goals-clip)
+  background-image: linear-gradient(to top, #000000 0% 50%, #F0F2F5 50% 100%)
+  background-position: 0 130px
+  background-repeat: no-repeat
+  transition: background-position 300ms
+  animation: moveClipDiv 1000ms ease-in 2000ms forwards
+
+.clip-briefs
+  position: absolute
+  right: 200px
+  top: 200px
+  height: 300px
+  width: 430px
+  clip-path: url(#briefs-clip)
+  background-image: linear-gradient(to top, #000000 0% 50%, red 50% 100%)
+  //background-position: 0 130px
+  // background-repeat: no-repeat
+  transition: background-position 300ms
+  //animation: moveClipDiv 1000ms ease-in 2000ms forwards
