@@ -15,7 +15,7 @@ const WeCraft = () => {
             <div
                 data-scroll
                 data-scroll-section
-                data-scroll-call={'white'}
+                data-scroll-call={'white, we-craft-text'}
                 data-scroll-repeat={true}
                 className={'trigger trigger-1'}
             > </div>

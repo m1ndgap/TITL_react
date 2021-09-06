@@ -68,7 +68,7 @@ const cases = [
         feedback: "We showed the research and there was unanimous agreement to change the definition of what we do.",
         signedBy: "William Grape (Client)",
         img: "./img/img-7.svg",
-        imgRetina: "./img/img-7-2x.svg",
+        imgRetina: "./img/img-7-2x.png",
     }
 ]
 

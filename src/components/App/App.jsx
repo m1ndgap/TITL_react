@@ -46,10 +46,11 @@ const App = () => {
     const mainMenu = useRef(null);
 
     const changeColor = (theme) => {
-        console.log(theme);
         const menu = mainMenu.current;
         const square = menu.querySelector('.mainmenu-square')
         const spans = menu.querySelectorAll('.main-menu .color-span');
+
+        square.style.backgroundImage = 'none';
 
         switch (theme) {
             case 'dark':
@@ -76,6 +77,23 @@ const App = () => {
         }
 
     }
+
+    const animateCaseLine = (arr) => {
+        const line = document.querySelector(`.case-line-${arr[1]}`)
+        line.style.width = "100%"
+    }
+
+
+    const animateExpertiseLines = () => {
+        const expLines = document.querySelectorAll('.expertise-line');
+        expLines.forEach((line) => {
+                    let timeOut = window.setTimeout(() => {
+                        line.querySelector('.expertise-line-fill').style.width = "100%"
+                    }, Math.random()*700)
+                })
+    }
+
+
 
     let scrollGlobal = useRef(null);
 
@@ -178,13 +196,17 @@ const App = () => {
 
         scrollGlobal.on('call', func => {
             console.log(func);
-            if (themeArr.includes(func)) {
-                changeColor(func);
-            } else if (func === 'square') {
+            if (themeArr.includes(func[0])) {
+                changeColor(func[0]);
+            } else if (func[0] === 'square') {
                 square.style.transform = 'scale(0.5) rotate(90deg) translateY(-50px)'
-            } else if (func === 'reset') {
+            } else if (func[0] === 'reset') {
                 mainMenu.current.style.backgroundColor = '#f0f2f6';
                 square.style.transform = 'scale(1) rotate(0deg) translateY(0)';
+            } else if (func[0].includes('case-scroll')) {
+                animateCaseLine(func)
+            } else if (func[0] === 'areas') {
+                animateExpertiseLines()
             }
         });
 
@@ -276,7 +298,7 @@ const App = () => {
                         data-scroll-id={'header'}
                         // data-scroll-speed="1"
                         // data-scroll-direction="vertical"
-                        data-scroll-call={"reset"}
+                        data-scroll-call={"reset, header"}
                         data-scroll-offset={"0, 100%"}
                         data-scroll-repeat={true}
                         className={"first-section scroll-section section"}>
@@ -288,7 +310,7 @@ const App = () => {
                         data-scroll-id={'wecraft'}
                         data-scroll-speed="3"
                         data-scroll-direction="vertical"
-                        data-scroll-call={"square"}
+                        data-scroll-call={"square, we-craft"}
                         data-scroll-offset={"20%"}
                         data-scroll-repeat={true}
                         className={"second-section scroll-section section"}>
@@ -314,10 +336,14 @@ const App = () => {
 
                     <Case
                         key={casesArr[2].id}
-                        case={casesArr[2]}/>
+                        case={casesArr[2]}
+                        centered={true}
+                    />
                     <Case
                         key={casesArr[3].id}
-                        case={casesArr[3]}/>
+                        case={casesArr[3]}
+                        centered={true}
+                    />
                     <Case
                         key={casesArr[4].id}
                         case={casesArr[4]}
@@ -330,11 +356,13 @@ const App = () => {
                         centered={false}/>
                     <Case
                         key={casesArr[6].id}
-                        case={casesArr[6]}/>
+                        case={casesArr[6]}
+                        centered={true}
+                    />
                     <div
                         data-scroll
                         data-scroll-section
-                        data-scroll-call={'white'}
+                        data-scroll-call={'white, trigger-2'}
                         data-scroll-repeat={true}
                         className={'trigger trigger-2'}
                     > </div>
@@ -344,7 +372,7 @@ const App = () => {
                     data-scroll-section
                     data-scroll-id={'wwd'}
                     data-scroll-offset={"40%"}
-                    data-scroll-call={'dark'}
+                    data-scroll-call={"dark, what-we-do"}
                     data-scroll-repeat={true}
                     className={"what-we-do"}
                     id={"what-we-do"}>
@@ -414,7 +442,10 @@ const App = () => {
                     </WS.WhatWeDo>
                 </section>
                 <section
+                    data-scroll
                     data-scroll-section
+                    data-scroll-offset={"50%"}
+                    data-scroll-call={'areas, areas'}
                     className={"our-areas"}
                     id={"our-areas"}>
                     <OurAreas/>
@@ -423,7 +454,7 @@ const App = () => {
                     data-scroll
                     data-scroll-section
                     data-scroll-offset={"20%"}
-                    data-scroll-call={'white'}
+                    data-scroll-call={'white, contact-us'}
                     data-scroll-repeat={true}
                     data-scroll-id={'contact'}
                     className={"contact-us section"}>

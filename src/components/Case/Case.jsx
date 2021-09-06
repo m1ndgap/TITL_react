@@ -16,6 +16,9 @@ const Case = (props) => {
             data-scroll
             datas-scroll-id={'case-scroll-' + id}
             className={'case-scroll'}
+            //data-scroll-position={'bottom'}
+            data-scroll-offset={'50%'}
+            data-scroll-call={`case-scroll-${id}, ${id}`}
             id={'case-scroll-' + id}
             data-scroll-section>
             <S.CaseTextWrap>
@@ -27,7 +30,7 @@ const Case = (props) => {
                         <path d="M11 1L1 11M11 1V10M11 1H2" stroke="#D94343" strokeWidth="2"/>
                     </svg>
                 </S.Link>
-                <S.Line className={'case-line'}/>
+                <S.Line className={`case-line case-line-${id}`}/>
                 <figure>
                     <S.Feedback>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
