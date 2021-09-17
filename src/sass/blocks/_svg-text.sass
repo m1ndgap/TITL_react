@@ -145,27 +145,25 @@
 .svgGoals, .svgBriefs
   stroke-width: 2px
 
-.clip-goals
+.clip-goals, .clip-briefs
   position: absolute
+  pointer-events: none
+  background-repeat: no-repeat
+  transition: background-position 300ms
+  background-image: linear-gradient(to top, #000000 0% 50%, #F0F2F5 50% 100%)
+
+.clip-goals
   top: 5px
   height: 300px
   width: 330px
   clip-path: url(#goals-clip)
-  background-image: linear-gradient(to top, #000000 0% 50%, #F0F2F5 50% 100%)
   background-position: 0 130px
-  background-repeat: no-repeat
-  transition: background-position 300ms
   animation: moveClipDiv 1000ms ease-in 2000ms forwards
-  pointer-events: none
 
 .clip-briefs
-  position: absolute
   top: 5px
   height: 700px
   width: 100%
   clip-path: url(#briefs-clip)
-  background-image: linear-gradient(to top, #000000 0% 50%, #F0F2F5 50% 100%)
   background-position: 700px 30px
-  background-repeat: no-repeat
-  transition: background-position 300ms
   animation: moveClipDiv2 1000ms ease-in 2000ms forwards

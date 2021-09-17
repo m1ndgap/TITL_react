@@ -107,7 +107,8 @@ const App = () => {
 
 
         const square = document.querySelector('.mainmenu-square');
-        //const mainMenu = document.querySelector('.main-menu');
+        const mainMenu = document.querySelector('.main-menu');
+        const mainMenuSpans = mainMenu.querySelectorAll('.color-span');
         // const wwdLine = document.querySelector('.animated-line-wwd');
         // const expLines = document.querySelectorAll('.expertise-line');
         // const caseLines = document.querySelectorAll('.case-scroll')
@@ -117,7 +118,7 @@ const App = () => {
 
         scrollGlobal.on('scroll', (args) => {
 
-            //console.log(args.currentElements);
+            console.log(args.currentElements);
             // if (args.scroll['y'] > 200) {
             //     square.style.transform = 'scale(0.5) rotate(90deg) translateY(-50px)'
             // } else {
@@ -147,50 +148,50 @@ const App = () => {
             //     mainMenu.style.backgroundColor = '#f0f2f6'
             // }
             //
-            // if (typeof args.currentElements['wwd']
-            //     === 'object' && args.currentElements['wwd'].progress
-            //     > 0.37 && mainMenu.style.backgroundColor != 'rgb(0, 0, 0)') {
-            //     square.style.backgroundColor = '#fff'
-            //     mainMenu.style.backgroundColor = '#000'
-            //     mainMenuSpans.forEach((span) => {
-            //         span.style.color = '#fff'
-            //     })
-            //     wwdLine.style.width = '100%'
-            // } else if(typeof args.currentElements['wwd']
-            //     === 'object' && args.currentElements['wwd'].progress
-            //     < 0.37 && mainMenu.style.backgroundColor == 'rgb(0, 0, 0)') {
-            //     square.style.backgroundColor = '#000'
-            //     mainMenu.style.backgroundColor = '#fff'
-            //     mainMenuSpans.forEach((span) => {
-            //         span.style.color = '#000'
-            //     })
-            // }
-            //
-            // if (typeof args.currentElements['wwd'] === 'object' && args.currentElements['wwd'].progress > 0.80) {
-            //     expLines.forEach((line) => {
-            //         let timeOut = window.setTimeout(() => {
-            //             line.querySelector('.expertise-line-fill').style.width = "100%"
-            //         }, Math.random()*700)
-            //     })
-            // }
-            //
-            // if (typeof args.currentElements['contact']
-            //     === 'object' && args.currentElements['contact'].progress
-            //     > 0.47 && mainMenu.style.backgroundColor != 'rgb(255, 255, 255)') {
-            //     square.style.backgroundColor = '#000'
-            //     mainMenu.style.backgroundColor = '#fff'
-            //     mainMenuSpans.forEach((span) => {
-            //         span.style.color = '#000'
-            //     })
-            // } else if(typeof args.currentElements['contact']
-            //     === 'object' && args.currentElements['contact'].progress
-            //     < 0.40 && mainMenu.style.backgroundColor == 'rgb(255, 255, 255)') {
-            //     square.style.backgroundColor = '#fff'
-            //     mainMenu.style.backgroundColor = '#000'
-            //     mainMenuSpans.forEach((span) => {
-            //         span.style.color = '#fff'
-            //     })
-            // }
+            if (typeof args.currentElements['wwd']
+                === 'object' && args.currentElements['wwd'].progress
+                > 0.25 && mainMenu.style.backgroundColor != 'rgb(0, 0, 0)') {
+                square.style.backgroundColor = '#fff'
+                mainMenu.style.backgroundColor = '#000'
+                mainMenuSpans.forEach((span) => {
+                    span.style.color = '#fff'
+                })
+                wwdLine.style.width = '100%'
+            } else if(typeof args.currentElements['wwd']
+                === 'object' && args.currentElements['wwd'].progress
+                < 0.25 && mainMenu.style.backgroundColor == 'rgb(0, 0, 0)') {
+                square.style.backgroundColor = '#000'
+                mainMenu.style.backgroundColor = '#fff'
+                mainMenuSpans.forEach((span) => {
+                    span.style.color = '#000'
+                })
+            }
+
+            if (typeof args.currentElements['wwd'] === 'object' && args.currentElements['wwd'].progress > 0.80) {
+                expLines.forEach((line) => {
+                    let timeOut = window.setTimeout(() => {
+                        line.querySelector('.expertise-line-fill').style.width = "100%"
+                    }, Math.random()*700)
+                })
+            }
+
+            if (typeof args.currentElements['contact']
+                === 'object' && args.currentElements['contact'].progress
+                > 0.35 && mainMenu.style.backgroundColor != 'rgb(255, 255, 255)') {
+                square.style.backgroundColor = '#000'
+                mainMenu.style.backgroundColor = '#fff'
+                mainMenuSpans.forEach((span) => {
+                    span.style.color = '#000'
+                })
+            } else if(typeof args.currentElements['contact']
+                === 'object' && args.currentElements['contact'].progress
+                < 0.30 && mainMenu.style.backgroundColor == 'rgb(255, 255, 255)') {
+                square.style.backgroundColor = '#fff'
+                mainMenu.style.backgroundColor = '#000'
+                mainMenuSpans.forEach((span) => {
+                    span.style.color = '#fff'
+                })
+            }
 
         });
 
@@ -201,7 +202,7 @@ const App = () => {
             } else if (func[0] === 'square') {
                 square.style.transform = 'scale(0.5) rotate(90deg) translateY(-50px)'
             } else if (func[0] === 'reset') {
-                mainMenu.current.style.backgroundColor = '#f0f2f6';
+                mainMenu.style.backgroundColor = '#f0f2f6';
                 square.style.transform = 'scale(1) rotate(0deg) translateY(0)';
             } else if (func[0].includes('case-scroll')) {
                 animateCaseLine(func)
@@ -359,20 +360,20 @@ const App = () => {
                         case={casesArr[6]}
                         centered={true}
                     />
-                    <div
-                        data-scroll
-                        data-scroll-section
-                        data-scroll-call={'white, trigger-2'}
-                        data-scroll-repeat={true}
-                        className={'trigger trigger-2'}
-                    > </div>
+                    {/*<div*/}
+                    {/*    data-scroll*/}
+                    {/*    data-scroll-section*/}
+                    {/*    data-scroll-call={'white, trigger-2'}*/}
+                    {/*    data-scroll-repeat={true}*/}
+                    {/*    className={'trigger trigger-2'}*/}
+                    {/*> </div>*/}
                 </section>
                 <section
                     data-scroll
                     data-scroll-section
                     data-scroll-id={'wwd'}
                     data-scroll-offset={"40%"}
-                    data-scroll-call={"dark, what-we-do"}
+                    // data-scroll-call={"dark, what-we-do"}
                     data-scroll-repeat={true}
                     className={"what-we-do"}
                     id={"what-we-do"}>
@@ -454,7 +455,7 @@ const App = () => {
                     data-scroll
                     data-scroll-section
                     data-scroll-offset={"20%"}
-                    data-scroll-call={'white, contact-us'}
+                    // data-scroll-call={'white, contact-us'}
                     data-scroll-repeat={true}
                     data-scroll-id={'contact'}
                     className={"contact-us section"}>

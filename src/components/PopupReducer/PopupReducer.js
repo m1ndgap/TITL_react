@@ -90,6 +90,7 @@ export const reducer = (state, action) => {
                 text: "coming soon",
                 link: false
             }
+
         case "toggle_clear":
             return {
                 ...state,
